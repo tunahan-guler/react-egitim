@@ -5,9 +5,9 @@ import { GET_USERS, GET_USERSBYID } from '../../../graphql/Query/Welcome';
 const UserData = () => {
     const [value, setValue] = useState("");
     const { data: dataUsers, loading: loadingUsers } = useQuery(GET_USERS);
-    const [getUser, { data: dataById, loading: loadingById }] = useLazyQuery(GET_USERSBYID,{
-        variables:{
-            prmId:1
+    const [getUser, { data: dataById, loading: loadingById }] = useLazyQuery(GET_USERSBYID, {
+        variables: {
+            prmId: 1
         }
     });
 
@@ -21,8 +21,8 @@ const UserData = () => {
             <select value={value} onChange={(e) => {
                 setValue(e.target.value)
                 getUser({
-                    variables:{
-                        prmId:parseInt(e.target.value)
+                    variables: {
+                        prmId: parseInt(e.target.value)
                     }
                 });
             }}>

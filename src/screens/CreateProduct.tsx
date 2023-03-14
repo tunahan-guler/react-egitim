@@ -20,8 +20,8 @@ const CreateProduct = () => {
     const onSaveButtonClick = () => {
         dispatch(addProduct({
             ...formState,
-            id:0,
-            price:parseFloat(formState.price)
+            id: 0,
+            price: parseFloat(formState.price)
         }))
         nav("/product");
     }

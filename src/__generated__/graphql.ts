@@ -462,6 +462,24 @@ export type Modum_Public_ChallangetypeInput = {
   typename?: InputMaybe<Scalars['String']>;
 };
 
+export type Modum_Public_EgitimTable = {
+  __typename?: 'Modum_public_EgitimTable';
+  desc?: Maybe<Scalars['String']>;
+  id: Scalars['Long'];
+};
+
+export type Modum_Public_EgitimTableFilterInput = {
+  and?: InputMaybe<Array<Modum_Public_EgitimTableFilterInput>>;
+  desc?: InputMaybe<StringOperationFilterInput>;
+  id?: InputMaybe<LongOperationFilterInput>;
+  or?: InputMaybe<Array<Modum_Public_EgitimTableFilterInput>>;
+};
+
+export type Modum_Public_EgitimTableInput = {
+  desc?: InputMaybe<Scalars['String']>;
+  id: Scalars['Long'];
+};
+
 export type Modum_Public_Language = {
   __typename?: 'Modum_public_Language';
   description?: Maybe<Scalars['String']>;
@@ -989,6 +1007,8 @@ export type Modum_Public_UseranswerInput = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  deleteEgitimTable: Scalars['Boolean'];
+  insertEgitimTable: Scalars['Boolean'];
   insertListMenuItemMassProsses: ResultModel;
   insertMenuItem: ResultModel;
   insertMenuItemMassProsses: ResultModel;
@@ -997,7 +1017,18 @@ export type Mutation = {
   register: ResultModelOfModum_Public_User;
   spendPoints: ResultModel;
   toggleActivityJoin: ResultModel;
+  updateEgitimTable: Scalars['Boolean'];
   updateMenuItem: ResultModel;
+};
+
+
+export type MutationDeleteEgitimTableArgs = {
+  prmId: Scalars['Long'];
+};
+
+
+export type MutationInsertEgitimTableArgs = {
+  prmEgitim: Modum_Public_EgitimTableInput;
 };
 
 
@@ -1043,6 +1074,11 @@ export type MutationToggleActivityJoinArgs = {
 };
 
 
+export type MutationUpdateEgitimTableArgs = {
+  prmEgitimTable: Modum_Public_EgitimTableInput;
+};
+
+
 export type MutationUpdateMenuItemArgs = {
   menuitem: Modum_Public_MenuitemInput;
 };
@@ -1051,6 +1087,7 @@ export type Query = {
   __typename?: 'Query';
   activities: Array<Modum_Public_Activity>;
   challanges: Array<ChallangeVm>;
+  egitimData: Array<Modum_Public_EgitimTable>;
   marketItemDetails?: Maybe<Modum_Public_Marketitem>;
   marketItems: Array<Modum_Public_Marketitem>;
   modes: Array<Modum_Public_Mode>;
@@ -1062,6 +1099,11 @@ export type Query = {
   tuple: TupleOfIQueryableOfModum_Public_PollAndIQueryableOfModum_Public_Question;
   users: Array<Modum_Public_User>;
   welcome: Scalars['String'];
+};
+
+
+export type QueryEgitimDataArgs = {
+  where?: InputMaybe<Modum_Public_EgitimTableFilterInput>;
 };
 
 
@@ -1184,6 +1226,32 @@ export enum EnmMessageTypes {
   Succes = 'SUCCES'
 }
 
+export type UpdateEgitimTableMutationVariables = Exact<{
+  prmEgitimTable: Modum_Public_EgitimTableInput;
+}>;
+
+
+export type UpdateEgitimTableMutation = { __typename?: 'Mutation', updateEgitimTable: boolean };
+
+export type InsertEgitimTableMutationVariables = Exact<{
+  prmEgitim: Modum_Public_EgitimTableInput;
+}>;
+
+
+export type InsertEgitimTableMutation = { __typename?: 'Mutation', insertEgitimTable: boolean };
+
+export type DeleteEgitimTableMutationVariables = Exact<{
+  prmId: Scalars['Long'];
+}>;
+
+
+export type DeleteEgitimTableMutation = { __typename?: 'Mutation', deleteEgitimTable: boolean };
+
+export type GetEgitimQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetEgitimQuery = { __typename?: 'Query', egitimData: Array<{ __typename?: 'Modum_public_EgitimTable', id: any, desc?: string | null }> };
+
 export type GetWelcomeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -1202,6 +1270,10 @@ export type GetUsersByIdQueryVariables = Exact<{
 export type GetUsersByIdQuery = { __typename?: 'Query', users: Array<{ __typename?: 'Modum_public_User', id: any, userdesc?: string | null }> };
 
 
+export const UpdateEgitimTableDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"UpdateEgitimTable"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"prmEgitimTable"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Modum_public_EgitimTableInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"updateEgitimTable"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"prmEgitimTable"},"value":{"kind":"Variable","name":{"kind":"Name","value":"prmEgitimTable"}}}]}]}}]} as unknown as DocumentNode<UpdateEgitimTableMutation, UpdateEgitimTableMutationVariables>;
+export const InsertEgitimTableDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"InsertEgitimTable"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"prmEgitim"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Modum_public_EgitimTableInput"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"insertEgitimTable"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"prmEgitim"},"value":{"kind":"Variable","name":{"kind":"Name","value":"prmEgitim"}}}]}]}}]} as unknown as DocumentNode<InsertEgitimTableMutation, InsertEgitimTableMutationVariables>;
+export const DeleteEgitimTableDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"mutation","name":{"kind":"Name","value":"DeleteEgitimTable"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"prmId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Long"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"deleteEgitimTable"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"prmId"},"value":{"kind":"Variable","name":{"kind":"Name","value":"prmId"}}}]}]}}]} as unknown as DocumentNode<DeleteEgitimTableMutation, DeleteEgitimTableMutationVariables>;
+export const GetEgitimDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetEgitim"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"egitimData"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"desc"}}]}}]}}]} as unknown as DocumentNode<GetEgitimQuery, GetEgitimQueryVariables>;
 export const GetWelcomeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetWelcome"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"welcome"}}]}}]} as unknown as DocumentNode<GetWelcomeQuery, GetWelcomeQueryVariables>;
 export const GetUsersDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetUsers"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"users"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"userdesc"}}]}}]}}]} as unknown as DocumentNode<GetUsersQuery, GetUsersQueryVariables>;
 export const GetUsersByIdDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetUsersById"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"prmId"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Long"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"users"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"id"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"eq"},"value":{"kind":"Variable","name":{"kind":"Name","value":"prmId"}}}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"userdesc"}}]}}]}}]} as unknown as DocumentNode<GetUsersByIdQuery, GetUsersByIdQueryVariables>;

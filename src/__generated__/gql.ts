@@ -13,9 +13,13 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
+    "\nmutation UpdateEgitimTable($prmEgitimTable: Modum_public_EgitimTableInput!) {\n  updateEgitimTable(prmEgitimTable: $prmEgitimTable)\n}\n": types.UpdateEgitimTableDocument,
+    "\nmutation InsertEgitimTable($prmEgitim: Modum_public_EgitimTableInput!) {\n  insertEgitimTable(prmEgitim: $prmEgitim)\n}\n": types.InsertEgitimTableDocument,
+    "\nmutation DeleteEgitimTable($prmId:Long!){\n  deleteEgitimTable(prmId: $prmId)\n}\n": types.DeleteEgitimTableDocument,
+    "\n query GetEgitim {\n  egitimData {\n    id\n    desc\n  }\n}\n": types.GetEgitimDocument,
     "\n  query GetWelcome {\n    welcome\n  }\n": types.GetWelcomeDocument,
-    "\nquery GetUsers{\n  users {\n    id\n    userdesc\n  }\n}\n": types.GetUsersDocument,
-    "\nquery GetUsersById($prmId: Long!) {\n  users(where: { id: { eq: $prmId } }) {\n    id\n    userdesc\n  }\n}\n": types.GetUsersByIdDocument,
+    "\n  query GetUsers {\n    users {\n      id\n      userdesc\n    }\n  }\n": types.GetUsersDocument,
+    "\n  query GetUsersById($prmId: Long!) {\n    users(where: { id: { eq: $prmId } }) {\n      id\n      userdesc\n    }\n  }\n": types.GetUsersByIdDocument,
 };
 
 /**
@@ -35,15 +39,31 @@ export function gql(source: string): unknown;
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+export function gql(source: "\nmutation UpdateEgitimTable($prmEgitimTable: Modum_public_EgitimTableInput!) {\n  updateEgitimTable(prmEgitimTable: $prmEgitimTable)\n}\n"): (typeof documents)["\nmutation UpdateEgitimTable($prmEgitimTable: Modum_public_EgitimTableInput!) {\n  updateEgitimTable(prmEgitimTable: $prmEgitimTable)\n}\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\nmutation InsertEgitimTable($prmEgitim: Modum_public_EgitimTableInput!) {\n  insertEgitimTable(prmEgitim: $prmEgitim)\n}\n"): (typeof documents)["\nmutation InsertEgitimTable($prmEgitim: Modum_public_EgitimTableInput!) {\n  insertEgitimTable(prmEgitim: $prmEgitim)\n}\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\nmutation DeleteEgitimTable($prmId:Long!){\n  deleteEgitimTable(prmId: $prmId)\n}\n"): (typeof documents)["\nmutation DeleteEgitimTable($prmId:Long!){\n  deleteEgitimTable(prmId: $prmId)\n}\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n query GetEgitim {\n  egitimData {\n    id\n    desc\n  }\n}\n"): (typeof documents)["\n query GetEgitim {\n  egitimData {\n    id\n    desc\n  }\n}\n"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
 export function gql(source: "\n  query GetWelcome {\n    welcome\n  }\n"): (typeof documents)["\n  query GetWelcome {\n    welcome\n  }\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\nquery GetUsers{\n  users {\n    id\n    userdesc\n  }\n}\n"): (typeof documents)["\nquery GetUsers{\n  users {\n    id\n    userdesc\n  }\n}\n"];
+export function gql(source: "\n  query GetUsers {\n    users {\n      id\n      userdesc\n    }\n  }\n"): (typeof documents)["\n  query GetUsers {\n    users {\n      id\n      userdesc\n    }\n  }\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\nquery GetUsersById($prmId: Long!) {\n  users(where: { id: { eq: $prmId } }) {\n    id\n    userdesc\n  }\n}\n"): (typeof documents)["\nquery GetUsersById($prmId: Long!) {\n  users(where: { id: { eq: $prmId } }) {\n    id\n    userdesc\n  }\n}\n"];
+export function gql(source: "\n  query GetUsersById($prmId: Long!) {\n    users(where: { id: { eq: $prmId } }) {\n      id\n      userdesc\n    }\n  }\n"): (typeof documents)["\n  query GetUsersById($prmId: Long!) {\n    users(where: { id: { eq: $prmId } }) {\n      id\n      userdesc\n    }\n  }\n"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};
